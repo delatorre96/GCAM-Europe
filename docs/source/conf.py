@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'GCAM-Europe'
+copyright = '2025, Basque Center For Climate Change'
+author = 'Basque Center For Climate Change'
 
-release = '0.1'
-version = '0.1.0'
+release = '1.0'
+version = '8.7.1'
 
 # -- General configuration
 
@@ -30,6 +30,19 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
+html_static_path = ['_static']
 
-# -- Options for EPUB output
-epub_show_urls = 'footnote'
+html_logo = "_static/logo-diamond.png"
+
+html_theme_options = {
+    "logo_only": False,
+}
+
+html_css_files = [
+    "custom.css"
+]
+html_show_sourcelink = False
+
+html_js_files = [
+    'js/theme.js'
+]
