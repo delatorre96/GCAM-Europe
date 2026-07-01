@@ -49,22 +49,22 @@ and redistribution of the software, subject to the terms and conditions outlined
 
 .. code-block:: text
 
-Educational Community License, Version 2.0 (ECL-2.0)
+   Educational Community License, Version 2.0 (ECL-2.0)
 
-Copyright (c) [YEAR], GCAM-Europe development team
+   Copyright (c) [YEAR], GCAM-Europe development team
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, subject to the following conditions:
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, subject to the following conditions:
 
-(Full license text as provided by the ECL-2.0 license applies.)
+   (Full license text as provided by the ECL-2.0 license applies.)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 
-For the complete license text, see the official ECL-2.0 documentation:
-http://opensource.org/licenses/ecl2.php
+   For the complete license text, see the official ECL-2.0 documentation:
+   http://opensource.org/licenses/ecl2.php
 
 
 Project Information
