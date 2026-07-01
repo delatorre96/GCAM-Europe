@@ -3,7 +3,7 @@
 # -- Project information
 
 project = 'GCAM-Europe'
-copyright = '2025, Basque Center For Climate Change'
+copyright = '2026, Basque Center For Climate Change'
 author = 'Basque Center For Climate Change'
 
 release = '1.0'

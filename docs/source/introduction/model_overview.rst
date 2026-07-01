@@ -24,16 +24,6 @@ that allows for isolated testing and analysis when required. The main sectoral c
 - Water resources
 
 
-.. raw:: html
-
-    <div style="margin-top:20px; margin-bottom:20px; text-align:center;">
-        <img src="../_static/sectoral_structure.png" style="width:90%;">
-        <div style="font-size:13px;">
-            <b>Figure 1.</b> Sectoral representation in GCAM-Europe.
-        </div>
-    </div>
-
-
 Model integration and coupling
 -------------------------------
 

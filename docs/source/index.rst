@@ -51,7 +51,7 @@ and redistribution of the software, subject to the terms and conditions outlined
 
    Educational Community License, Version 2.0 (ECL-2.0)
 
-   Copyright (c) [YEAR], GCAM-Europe development team
+   Copyright (c) 2007
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -74,7 +74,7 @@ Project Information
  
 **Acronym:** DIAMOND
 
-**Funding Scheme:** Horizon Europe, RIA – Research and Innovation Action
+**Funding Scheme:** Horizon Europe, María de Maeztu Excellence
   
 **Topic:** HORIZON-CL5-2022-D1-02
   
@@ -83,9 +83,9 @@ Project Information
 **Project Website:** http://www.climate-diamond.eu/  
 
 **Project Coordinator:**  
-Institute of Communications and Computer Systems (ICCS), Greece
+Basque Center For Climate Change (BC3)
   
-**EU Project Advisor:** Silvia Vaghi (CINEA)
+**EU Project Advisor:**  ???????????????
 
 **Deliverable:** D3.5 – GCAM-Europe Final Version & Documentation
 
@@ -93,16 +93,16 @@ Institute of Communications and Computer Systems (ICCS), Greece
   
 **Work Package:** WP3 – Update & Upgrade  
 
-**Lead Beneficiary:** The Cyprus Institute (CYI) 
+**Lead Beneficiary:** ???????
  
-**Responsible Author:** Constantinos Taliotis 
+**Responsible Author:** Jon Sampedro (BC3, Ikerbasque)
  
-**Contact:** c.taliotis@cyi.ac.cy
+**Contact:** jon.sampedro@bc3research.org, dj.vandeven@bc3research.org 
 
 Contributors
 ------------
 
-Jon Sampedro (BC3, IKERBASQUE), Russell Horowitz (BC3), Clàudia Rodés-Bachs(BC3) , Dirk-Jan Van de Ven (BC3)
+Jon Sampedro (BC3, Ikerbasque), Russell Horowitz (BC3), Clàudia Rodés-Bachs(BC3), Ignacio de la Torre Cubillo (BC3), Dirk-Jan Van de Ven (BC3)
 
 Preface
 -------

@@ -1,132 +1,178 @@
 Software and hardware requirements
-====================================
+==================================
 
-The input data files for the CLEWs-EU model are constructed in an Excel file with multiple worksheets. 
-Each worksheet corresponds to a particular **SET** or **Parameter** in the OSeMOSYS model. 
+GCAM-Europe is distributed as a pre-configured release based on the Global
+Change Analysis Model (GCAM). The release includes all files required to run
+the reference model and therefore does not require users to compile the model
+from source. The repository contains the complete workflow, from data
+pre-processing to model execution and output visualisation.
 
-A Python package, **Otoole**, is used to handle all data manipulations required for running the model. 
-Users should ensure they have:
+Software requirements
+---------------------
 
-- the latest stable version of **Python**, and  
-- the latest version of **Otoole** installed.
+The GCAM-Europe release provides a complete working environment. Additional
+software is only required for specific tasks within the modelling workflow.
 
-To use Otoole, a **YAML configuration file** is required. A project-specific YAML file has been prepared for CLEWs-EU and is available in the ``model_files`` folder of the model’s GitHub repository.
+The following software components are used:
 
-An optimisation solver is also required to run the model. Any of the following options may be used:
+- **R**, required to run the data system that prepares the model input data.
+- **gcamdata**, the R package responsible for reading the raw input datasets,
+  processing them, and generating the XML files used by GCAM.
+- **Java Runtime Environment (JRE)**, required to run the GCAM
+  ``ModelInterface`` for exploring model outputs and executing database queries.
 
-- **GLPSOL** – mandatory, as it is part of the GLPK package and required to generate the model matrix.  
-  Note: the disaggregated CLEWs-EU model is computationally intensive; GLPSOL should *not* be used for the optimisation step.
-- **GUROBI** – proprietary (academic licence available)
-- **CPLEX** – proprietary (academic licence available)
-- **CBC** – open-source
+GCAM itself is implemented in **C++**, although users of the distributed
+release do not need to interact with the source code or compile the model.
 
-As the CLEWs-EU model was developed in parallel modules, computational intensity varies depending on whether:
+Further information about the GCAM workflow and software architecture is
+available in the official GCAM documentation:
 
-- the **fully integrated model** is run, or  
-- only an **individual sectoral module** is executed.
+https://jgcri.github.io/gcam-doc/user-guide.html
 
-The primary limiting factor is the **amount of available memory**.
+Hardware requirements
+---------------------
 
-The disaggregated version of the integrated CLEWs-EU model is computationally intensive and is therefore not run with annual time steps; instead, **5-year steps** are used. In contrast, **annual resolution** is maintained in each standalone sectoral model.
-
-As indicated in **Table 27**, the disaggregated integrated CLEWs-EU model requires **~260 GB of memory** to run.  
-By comparison, the aggregated version requires only **~8 GB**, despite using annual resolution, due to its significantly lower structural complexity, making it suitable for stakeholder engagement.
-
-.. raw:: html
-
-    <div style="font-size:13px; margin-top:20px; margin-bottom:8px; text-align:center;">
-        <b>Table 27.</b> Key hardware requirements to run the disaggregated version of the CLEWs-EU model and its sectoral components
-    </div>
+The computational requirements of GCAM-Europe depend on the selected scenario
+and model configuration. A modern multi-core processor and sufficient memory
+are recommended for efficient execution.
 
 .. list-table::
    :header-rows: 1
-   :widths: 40 20
-   :align: center
+   :widths: 45 25
 
-   * - **CLEWs-EU sectoral model**
-     - **Memory requirements (GB RAM)**
+   * - Component
+     - Minimum requirement
+   * - Processor
+     - 64-bit multi-core CPU
+   * - Memory (RAM)
+     - 4 GB
+   * - Available disk space
+     - At least 9 GB
+   * - Operating system
+     - 64-bit Windows, Linux, or macOS
 
-   * - Energy module
-     - 170 GB
+Repository structure
+====================
 
-   * - Electricity supply
-     - 38 GB
+The GCAM-Europe repository is organised into a number of directories
+corresponding to different stages of the modelling workflow.
 
-   * - Buildings
-     - 12 GB
+::
 
-   * - Industry
-     - 34 GB
+   CONTRIBUTING.md
+   LICENSE.md
+   README.md
+   Makefile
 
-   * - Transport
-     - 32 GB
+   exe/
+   input/
+   output/
+   ModelInterface/
+   libs/
+   cvs/
+   util/
 
-   * - Land & Water module
-     - 180 GB
+The main directories are described below.
 
-   * - **Integrated CLEWs-EU model**
-     - **260 GB**
+``input/``
+-----------
+
+The ``input`` directory contains the complete GCAM data system.
+
+This includes:
+
+- the R scripts that configure and execute the data system;
+- the initial input datasets;
+- the **gcamdata** package configuration; and
+- the XML files generated during data processing.
+
+The data system reads the raw input datasets, performs all necessary
+pre-processing steps, and generates a complete set of XML files describing the
+GCAM-Europe model. These XML files constitute the direct inputs to the GCAM
+simulation engine.
+
+``exe/``
+--------
+
+The ``exe`` directory contains the executable version of GCAM-Europe.
+
+Model simulations should be launched using ``run_gcam.bat``, which executes
+GCAM with the appropriate configuration. The executable itself
+(``gcam.exe``) is normally not run directly.
+
+This directory also contains the main configuration file
+(``configuration.xml``), which controls the simulation settings, including:
+
+- the simulation time horizon;
+- the location of output files;
+- the XML input files included in the model;
+- and the policy files activated for a given scenario.
+
+Policy files are provided as additional XML files specifying assumptions such
+as carbon prices, taxes, subsidies and other policy measures affecting
+different regions, markets and simulation periods.
+
+``output/``
+-----------
+
+The ``output`` directory stores the results generated after each model run.
+
+By default, simulation outputs are written to this directory, although the
+destination can be modified through ``configuration.xml``.
+
+This directory also contains the XML query files used by the GCAM
+``ModelInterface`` to retrieve specific information from the output database.
+
+``ModelInterface/``
+-------------------
+
+The ``ModelInterface`` directory contains the Java-based graphical interface
+used to inspect GCAM output databases.
+
+The software allows users to execute predefined XML queries, explore simulation
+results and export selected outputs for further analysis.
+
+``libs/`` and ``cvs/``
+----------------------
+
+These directories contain the C++ libraries and supporting configuration files
+required internally by GCAM.
+
+Users working with the distributed release normally do not need to modify these
+directories.
+
+Workflow overview
+=================
+
+The GCAM-Europe modelling workflow consists of three main stages.
 
 
-Model setup
-===========
+1. **Data preparation**
 
-The `GitHub repository <https://github.com/CLIMATE-DIAMOND/EU-CLEWS>`_ provides the following material:
-
-
-a) **OSeMOSYS code**  
-   This is the version of the OSeMOSYS code developed specifically for this project. 
-   Three separate files are provided, depending on which model is used (i.e., 
-   the individual sectoral models or the integrated CLEWs-EU model).  
-   These files are plain-text and include all parameters, variables, and constraints 
-   that describe the relationship between input data (parameters) and model outputs (variables).
-
-b) **CLEWs-EU model data files**  
-   Model data files are provided as Excel spreadsheets for:
-   
-   - the energy module and its sub-components,  
-   - the land and water module,  
-   - and the integrated CLEWs-EU model (energy + land + water).
-
-   These files contain the full model structure in the form of **Sets**  
-   (e.g., years, fuels/commodities, technologies, emissions, etc.)  
-   as well as all associated **techno-economic assumptions**  
-   (e.g., energy service demand projections, costs, efficiencies, and so on).
-
-c) **Supporting data**  
-   This folder contains additional information needed by future CLEWs-EU users.  
-   The **naming convention** files are included here, along with more detailed input data 
-   and modelling assumptions for the final version of the model.
-
-d) **Data preparation scripts**  
-   These scripts automate the extraction of required data from external databases 
-   (e.g., JRC-IDEES 2021).  
-   They have been developed for the **transport** and **industrial** sectors and may be 
-   extended to other sectors in future releases.  
-   The scripts are included for transparency and to support potential future 
-   updates to model detail.
+   The data system, implemented in R through the ``gcamdata`` package, reads
+   the raw input datasets and generates the XML files required by GCAM.
 
 
-Using the CLEWs-EU model
-==========================
+2. **Model execution**
 
-The procedure to run the CLEWs-EU model is the same as for any other OSeMOSYS model. 
-Specifically, the following steps should be followed:
+   The generated XML files are read by the GCAM simulation engine, implemented
+   in C++, which executes the selected scenario according to the options
+   defined in ``configuration.xml``.
 
-1. Using **Otoole**, convert the OSeMOSYS data file from Excel format to a text data file.  
-   Users may refer to the examples page of the Otoole documentation for the exact syntax.
 
-2. Use **GLPK** to create the LP version of the model (``.lp`` file), using as input:
-   
-   - the OSeMOSYS data file (``.txt``), and  
-   - the OSeMOSYS code file (``.txt``).  
+3. **Output analysis**
 
-   This step generates the problem matrix by loading the data into the OSeMOSYS equations.
+   Simulation results are stored in the output database and can be explored
+   using the Java-based ``ModelInterface`` or exported for further analysis.
 
-3. Optimise the ``.lp`` file using any of the recommended solvers.  
-   Once an optimal solution is found, write the **solution file** (``.sol`` format).
+   In addition, scenario outputs can be analysed programmatically using external tools:
 
-4. Use **Otoole** to export the results from the solution file into **CSV result files**.
+   - **R-based workflow** using the ``rgcam`` package, which allows direct access
+     to GCAM databases for post-processing, scenario comparison, and visualization.
 
-5. Open the CSV files to inspect results in tabular form.  
-   At a later stage, visualisation scripts will be developed to allow automatic and interactive result exploration.
+   - **Python-based workflow** using the ``gcamreader`` package, enabling automated
+     extraction of results, integration with scientific Python stacks (e.g. pandas,
+     numpy, matplotlib), and advanced scenario analysis.
+
+   These tools facilitate reproducible and flexible analysis of GCAM-Europe outputs
+   outside the native ModelInterface environment.
