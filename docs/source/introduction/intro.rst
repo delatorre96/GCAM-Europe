@@ -1,11 +1,99 @@
 General Introduction
 ====================
 
-The **CLEWs-EU** model is developed within the OSeMOSYS (Open-Source Energy Systems Model) modelling framework. OSeMOSYS is a long-term cost-optimisation energy system model (Howells et al., 2011). OSeMOSYS has been used in numerous studies with a focus ranging from a global, regional and national scale (Gardumi et al., 2018; Peña Balderrama et al., 2018; Sridharan et al., 2019). It is a bottom-up technoeconomic model that is demand-driven, meaning the exogenously defined demand must be met, regardless of the cost. The choice of technologies and energy mix is based on the adopted technoeconomic assumptions (e.g., fuel costs, technology costs, resource availability, emission limits). The model’s objective function is the minimisation of the total discounted system cost over the entire modelling horizon.
-The CLEWs-EU model builds on the structure of the Global CLEWs model (Beltramo et al., 2021), with several enhancements being implemented. Two separate main modules, namely i) energy; and ii) land with water, have been developed with several interlinkages between them. Greenhouse gas emissions are tracked across the modules, which in turn are affected by climate assumptions. For instance, temperature affects water demand in agriculture, while precipitation affects hydropower output and crop yield. In the energy module, a large set of technologies are used to represent primary energy supply, electricity generation, transport, buildings and industry. In addition, the suite of technologies has been expanded to include a broader range of decarbonisation options. For instance, use of hydrogen – either imported or locally produced – is an option that was not available in the Global CLEWs but is included in the CLEWs-EU model. In the land module, the available land resources for crop production, livestock grazing and other uses are being defined at the EU level and for each country individually, assessing the impact of policies and climate on water and energy. Furthermore, whereas the Global CLEWs model employs a simple accounting approach to calculate water requirements throughout the system, the CLEWs-EU model has a more explicit representation of water demand and supply. More information on the structure of each module is provided in the subsequent sections.
+The **GCAM-Europe** model is an expansion of the Global Change Analysis Model (GCAM), a widely used
+Integrated Assessment Model (IAM) for global scenario analysis (Calvin et al., 2019). GCAM is a
+technology-rich, bottom-up model that represents interactions between the economy, energy system,
+land use, water resources, and the climate system.
 
-Two levels of geographical resolution are adopted:
+The model is designed to explore long-term transition pathways under different climate and policy
+scenarios, including carbon pricing, emissions trading systems, regulatory instruments, and accelerated
+technology deployment. It links socio-economic drivers such as population and labor productivity growth
+to energy demand, land-use change, and water use, which are represented through a wide range of
+technology options for energy supply, transformation, and end-use services, as well as agricultural
+and forestry production systems.
 
-a. **Aggregated regional model**, in which the EU is represented as a single node, serving as an engagement model, upon which capacity development activities on EU climate policy can be developed due to its simplified structure and low computational effort. Coupled with the adoption of a user-friendly interface, enabling direct changes in model parameters and visualisation of the system dynamics, it allows the exploration of climate change mitigation pathways by a broad range of stakeholders. This ensures consistency with the philosophy behind the initial development of the Global CLEWs model.
+A complete description of the global GCAM framework is available in the official documentation:
+https://github.com/JGCRI/gcam-core.com
 
-b. **Disaggregated model**, in which the level of spatial resolution has been extended to the national level, to be used for the more extensive analyses foreseen within DIAMOND (e.g., through soft links in WP4). Unlike the high-level focus of the aggregated model, the disaggregated model provides more focused insights and can be used to support the development of national policies within the context of mutual EU obligations/targets. As expected, the development of the disaggregated model has entailed a larger volume of input data compared to the aggregated model. For the land and water module, mostly country-specific data has been incorporated in this version. However, in certain cases, like groundwater usage shares, livestock numbers, EU-27 averages have been used for countries which do not report explicit numbers. These assumptions can be revisited in future model developments, and country-specific data will be updated wherever possible.
+
+Geographical resolution in GCAM-Europe
+--------------------------------------
+
+GCAM divides the global economy into 32 regions, with Europe originally represented through several
+aggregated regional groupings (EU-12, EU-15, Eastern Europe, non-EU Europe, and EFTA).
+
+GCAM-Europe significantly refines this representation by disaggregating the European continent into
+39 individual countries, each represented as a separate model region. This increased spatial resolution
+allows for a more detailed assessment of national-level climate and energy policy impacts, while
+maintaining consistency with the global GCAM structure.
+
+In addition, the model preserves the rest of the world as defined in the original GCAM regional
+classification, enabling the analysis of international spillovers such as carbon leakage and trade
+effects across a representative set of global regions.
+
+
+.. raw:: html
+
+    <div style="text-align:center; margin-top:20px; margin-bottom:20px;">
+        <img src="https://raw.githubusercontent.com/bc3LC-GCAMEurope/gcam-core/GCAM-Europe/Readme_fig1.png"
+             style="width:80%;">
+        <div style="font-size:13px;">
+            <b>Figure 1.</b> Regional disaggregation in GCAM-Europe. Yellow-to-red regions represent
+            European countries explicitly disaggregated in the model, while blue regions correspond
+            to the original GCAM regional structure.
+        </div>
+    </div>
+
+
+Model characteristics and extensions
+------------------------------------
+
+GCAM-Europe extends the standard GCAM framework by introducing Europe-specific data sources and
+additional sectoral detail. Whenever available, European datasets (e.g., Eurostat energy statistics)
+are used to replace default global assumptions. In cases where country-level data are incomplete,
+the model reverts to standard GCAM input datasets (e.g., IEA statistics) to ensure completeness and
+consistency.
+
+Key model extensions include:
+
+- Enhanced representation of residential energy demand, including new end-use categories such as
+  hot water, cooking, and household appliances
+- Introduction of emerging technologies such as heat pumps
+- Increased granularity in consumer segmentation in the residential sector, based on country-level
+  data availability
+- Improved representation of the European Single Market for selected sectors, allowing for trade
+  between European countries
+
+The model also represents an interconnected electricity system structured into grid regions and
+load segments, enabling a more detailed representation of electricity flows, storage options, and
+temporal variability in supply and demand.
+
+
+.. raw:: html
+
+    <div style="text-align:center; margin-top:20px; margin-bottom:20px;">
+        <img src="https://raw.githubusercontent.com/bc3LC-GCAMEurope/gcam-core/GCAM-Europe/Readme_fig2.png"
+             style="width:80%;">
+        <div style="font-size:13px;">
+            <b>Figure 2.</b> Electricity grid regions in GCAM-Europe.
+        </div>
+    </div>
+
+
+Model dynamics and outputs
+--------------------------
+
+GCAM-Europe operates over the period 1990–2100 in five-year time steps. The model simulates the
+evolution of energy systems, land use, water use, and economic activity under exogenous assumptions
+regarding population, economic growth, technological change, and policy constraints.
+
+Model outputs include projections of:
+
+- Energy supply and demand
+- Land-use and agricultural activity
+- Greenhouse gas emissions (16 gases), aerosols, and short-lived climate forcers
+- Radiative forcing and climate-related indicators
+
+These outputs can be used to evaluate the implications of climate mitigation policies and transition
+pathways at both European and global scales.
