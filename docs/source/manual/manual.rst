@@ -162,17 +162,23 @@ The GCAM-Europe modelling workflow consists of three main stages.
 
 3. **Output analysis**
 
-   Simulation results are stored in the output database and can be explored
-   using the Java-based ``ModelInterface`` or exported for further analysis.
+   Simulation results are stored in the output database and can be analysed
+   through several complementary approaches depending on the user's workflow
+   and analysis requirements.
 
-   In addition, scenario outputs can be analysed programmatically using external tools:
+   - **Graphical interface** using the Java-based ``ModelInterface``, which
+     allows users to browse the output database, inspect model results, and
+     export data for further analysis.
 
-   - **R-based workflow** using the ``rgcam`` package, which allows direct access
-     to GCAM databases for post-processing, scenario comparison, and visualization.
+   - **Programmatic analysis** using external scripting environments:
+     
+     - **R-based workflow** through the ``rgcam`` package, which provides
+       direct access to GCAM databases for data extraction, post-processing,
+       scenario comparison, and visualization.
 
-   - **Python-based workflow** using the ``gcamreader`` package, enabling automated
-     extraction of results, integration with scientific Python stacks (e.g. pandas,
-     numpy, matplotlib), and advanced scenario analysis.
+     - **Python-based workflow** through the ``gcamreader`` package, enabling
+       automated extraction of results, integration with the scientific Python
+       ecosystem (e.g. pandas, numpy, matplotlib), and advanced scenario
+       analysis.
 
-   These tools facilitate reproducible and flexible analysis of GCAM-Europe outputs
-   outside the native ModelInterface environment.
+   - **Standardized reporting** using the ``gcamreport`` package, which generates consistent datasets from GCAM and GCAM-Europe scenarios that comply with the Integrated Assessment Modeling Consortium (IAMC) reporting standards defined in the Common Definitions repository. This facilitates the harmonization, comparison, and dissemination of model results across different scenarios and modelling exercises.
