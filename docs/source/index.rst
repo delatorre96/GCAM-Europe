@@ -72,37 +72,40 @@ Project Information
 
 **Grant Agreement Number:** 101081179 
  
+**Full title** Delivering the next generation of open Integrated Assessment MΟdels for Net-zero, sustainable Development
+
 **Acronym:** DIAMOND
 
-**Funding Scheme:** Horizon Europe, María de Maeztu Excellence
-  
 **Topic:** HORIZON-CL5-2022-D1-02
+
+**Funding Scheme:** HORIZON EUROPE, RIA – Research and Innovation Action
   
 **Project Duration:** December 2022 – November 2026
   
 **Project Website:** http://www.climate-diamond.eu/  
 
-**Project Coordinator:**  
-Basque Center For Climate Change (BC3)
+**Project Coordinator:** Institute of Communications and Computer Systems - ICCS
   
-**EU Project Advisor:**  ???????????????
+**EU Project Advisor:** Silvia Vaghi
 
-**Deliverable:** D3.5 – GCAM-Europe Final Version & Documentation
+**Deliverable:** D3.8 – GCAM-Europe final version & documentation
 
 **Github Repository:** https://github.com/bc3LC-GCAMEurope/gcam-core
   
 **Work Package:** WP3 – Update & Upgrade  
 
-**Lead Beneficiary:** ???????
+**Lead Beneficiary:** Asociacion BC3 Basque Centre for Climate Change - Klima Aldaketa Ikergai (BC3)
  
 **Responsible Author:** Jon Sampedro (BC3, Ikerbasque)
  
-**Contact:** jon.sampedro@bc3research.org, dj.vandeven@bc3research.org 
+**Contact:** jon.sampedro@bc3research.org
+
+**Keywords:** Integrated assessment; Model development
 
 Contributors
 ------------
 
-Jon Sampedro (BC3, Ikerbasque), Russell Horowitz (BC3), Clàudia Rodés-Bachs(BC3), Ignacio de la Torre Cubillo (BC3), Dirk-Jan Van de Ven (BC3)
+Dirk-Jan Van de Ven , Clàudia Rodés-Bachs, Ignacio de la Torre (BC3); Konstantinos Koasidis, Natasha Frilingou, Alexandros Nikas (ICCS)
 
 Preface
 -------
