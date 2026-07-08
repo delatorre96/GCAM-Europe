@@ -85,7 +85,7 @@ boundaries and major river basins.
 This regionalization enables detailed country-level analyses while preserving
 the global interactions represented by the original GCAM framework.
 
-.. figure:: _static/Regional disaggregation in GCAM-Europe.png
+.. figure:: ../_static/Regional disaggregation in GCAM-Europe.png
    :width: 85%
    :align: center
 
@@ -123,7 +123,7 @@ from the openTEPES electricity model. This structure enables a more realistic
 representation of renewable integration, electricity storage, and
 cross-border transmission.
 
-.. figure:: _static/Electricity grid regions GCAM-Europe.png
+.. figure:: ../_static/Electricity grid regions GCAM-Europe.png
    :width: 85%
    :align: center
 
@@ -198,7 +198,7 @@ allows the model to reproduce the integrated European internal market while
 supporting analyses of policies such as the Carbon Border Adjustment Mechanism
 (CBAM).
 
-.. figure:: _static/Commodity trade structure GCAM-Europe.png
+.. figure:: ../_static/Commodity trade structure GCAM-Europe.png
    :width: 85%
    :align: center
 
