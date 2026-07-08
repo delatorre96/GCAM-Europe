@@ -33,19 +33,6 @@ classification, enabling the analysis of international spillovers such as carbon
 effects across a representative set of global regions.
 
 
-.. raw:: html
-
-    <div style="text-align:center; margin-top:20px; margin-bottom:20px;">
-        <img src="https://raw.githubusercontent.com/bc3LC-GCAMEurope/gcam-core/GCAM-Europe/Readme_fig1.png"
-             style="width:80%;">
-        <div style="font-size:13px;">
-            <b>Figure 1.</b> Regional disaggregation in GCAM-Europe. Yellow-to-red regions represent
-            European countries explicitly disaggregated in the model, while blue regions correspond
-            to the original GCAM regional structure.
-        </div>
-    </div>
-
-
 Model characteristics and extensions
 ------------------------------------
 
@@ -68,17 +55,6 @@ Key model extensions include:
 The model also represents an interconnected electricity system structured into grid regions and
 load segments, enabling a more detailed representation of electricity flows, storage options, and
 temporal variability in supply and demand.
-
-
-.. raw:: html
-
-    <div style="text-align:center; margin-top:20px; margin-bottom:20px;">
-        <img src="https://raw.githubusercontent.com/bc3LC-GCAMEurope/gcam-core/GCAM-Europe/Readme_fig2.png"
-             style="width:80%;">
-        <div style="font-size:13px;">
-            <b>Figure 2.</b> Electricity grid regions in GCAM-Europe.
-        </div>
-    </div>
 
 
 Model dynamics and outputs
